@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+<body>
+    <h1>Hello World</h1>
+    <p id="P1">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+    <ul>
+        <li>One</li>
+        <li>Two</li>
+    </ul>
+    <p id="confirmbox"></p>
+    <script>
+        // console.log(document)
+        // console.log(window.document)
+        // console.log(document.head);
+        // console.log(document.body);
+        // let val = document.getElementById("P1");
+        // console.log(val.innerHTML);
+
+        //ALERT
+
+        // alert("Hello Purvi!!!!")
+        // setTimeout(() => {
+        //     alert("Hi Purvi!!!!!");
+        // }, 2000);
+
+        //CONFIRM BOX
+
+        let value = confirm("Are you ok?????");
+        if(value){
+            document.getElementById("confirmbox").innerHTML = "<h1>Hello! You are learning Javascript!!</h1>"
+        }
+        else{
+            document.getElementById("confirmbox").innerText = "<h1>Hello! You are learning Javascript!!</h1>"
+        }
+
+        //PROMPT BOX
+        // let value1 = prompt("Enter value between 1 to 10");
+        // if(value1==2){
+        //     document.getElementById("confirmbox").innerText="Your lucky number is 2"
+        // }
+    </script>
+</body>
+</html>
