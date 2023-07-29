@@ -1,0 +1,77 @@
+// Example of Callback Hell:
+
+asyncOperation1(function (result1) {
+  asyncOperation2(result1, function (result2) {
+    asyncOperation3(result2, function (result3) {
+      // More nested callbacks can go on...
+    });
+  });
+});
+
+olving Callback Hell:
+
+// Using Named Functions:
+// Instead of using anonymous functions as callbacks, we can define named functions and use them as callbacks. This approach improves code readability and simplifies the nesting.
+
+function onResult1(result1) {
+  asyncOperation2(result1, onResult2);
+}
+
+function onResult2(result2) {
+  asyncOperation3(result2, onResult3);
+}
+
+asyncOperation1(onResult1);
+
+// 2. Using Promises:
+// Promises provide a cleaner way to handle asynchronous operations and avoid the callback hell. 
+//   Promises represent the eventual completion (or failure) of an asynchronous operation and allow chaining of asynchronous operations.
+
+function asyncOperation1() {
+  return new Promise((resolve) => {
+    // Async operation 1
+    resolve(result1);
+  });
+}
+
+function asyncOperation2(result1) {
+  return new Promise((resolve) => {
+    // Async operation 2
+    resolve(result2);
+  });
+}
+
+function asyncOperation3(result2) {
+  return new Promise((resolve) => {
+    // Async operation 3
+    resolve(result3);
+  });
+}
+
+asyncOperation1()
+  .then(asyncOperation2)
+  .then(asyncOperation3)
+  .then((result3) => {
+    // Handle the final result after all async operations complete
+  })
+  .catch((error) => {
+    // Handle errors
+  });
+
+// Using Async/Await:
+// Async/await is a modern JavaScript feature that provides a more synchronous-like way to handle asynchronous code. 
+//   It allows us to write asynchronous code in a more sequential and readable manner.
+
+async function processAsyncOperations() {
+  try {
+    const result1 = await asyncOperation1();
+    const result2 = await asyncOperation2(result1);
+    const result3 = await asyncOperation3(result2);
+
+    // Handle the final result after all async operations complete
+  } catch (error) {
+    // Handle errors
+  }
+}
+
+processAsyncOperations();
